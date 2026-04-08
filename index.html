@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScolarManager Pro | L'Élite de l'Administration</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <style>
+        /* ==========================================================================
+           1. CONFIGURATION GLOBALE (Police plus petite & fine)
+           ========================================================================== */
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --accent: #10b981;
+            --bg-body: #ffffff;
+            --bg-alt: #f8fafc;
+            --text-dark: #1e293b;
+            --text-mid: #64748b;
+            --border: #e2e8f0;
+            --ease-fluid: cubic-bezier(0.85, 0, 0.15, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-size: 15px; /* Taille baissée pour l'élégance */
+            overflow-x: hidden;
+        }
+
+        /* Allongement massif des sections */
+        section {
+            padding: 200px 10%; 
+            border-bottom: 1px solid var(--border);
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* ==========================================================================
+           2. NAVIGATION
+           ========================================================================== */
+        nav {
+            position: fixed;
+            top: 0; width: 100%; height: 90px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 8%; z-index: 10000;
+            transition: 0.4s var(--ease-fluid);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        nav.scrolled { height: 70px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+
+        .logo { font-size: 1.3rem; font-weight: 700; color: var(--primary-dark); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .nav-links { display: flex; gap: 35px; list-style: none; }
+        .nav-links a {
+            text-decoration: none; color: var(--text-dark);
+            font-weight: 600; font-size: 0.9rem; transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* ==========================================================================
+           3. HERO
+           ========================================================================== */
+        .hero {
+            height: 100vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; background: radial-gradient(circle at top, #f0f4ff 0%, #ffffff 70%);
+        }
+
+        .hero h1 { font-size: 4.5rem; font-weight: 700; line-height: 1.1; margin-bottom: 25px; letter-spacing: -2px; }
+        .hero p { font-size: 1.2rem; color: var(--text-mid); max-width: 750px; margin-bottom: 40px; }
+
+        /* ==========================================================================
+           4. BOUTONS
+           ========================================================================== */
+        .btn {
+            padding: 18px 40px; border-radius: 100px; font-weight: 700; font-size: 0.95rem;
+            cursor: pointer; transition: 0.5s var(--ease-fluid); border: none;
+            display: inline-flex; align-items: center; gap: 12px; text-decoration: none;
+        }
+        .btn-p { background: var(--primary-dark); color: white; box-shadow: 0 15px 35px rgba(79, 70, 229, 0.2); }
+        .btn-p:hover { transform: translateY(-5px); box-shadow: 0 25px 50px rgba(79, 70, 229, 0.3); }
+
+        /* ==========================================================================
+           5. CONTENU
+           ========================================================================== */
+        .section-title { text-align: center; margin-bottom: 120px; }
+        .section-title h2 { font-size: 2.8rem; font-weight: 700; margin-top: 10px; }
+        .section-title span { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; }
+
+        /* Features */
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        .f-card { padding: 50px; border-radius: 30px; background: white; border: 1px solid var(--border); transition: 0.5s; }
+        .f-card:hover { transform: translateY(-15px); border-color: var(--primary); box-shadow: 0 30px 60px rgba(0,0,0,0.03); }
+        .f-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 25px; }
+        .f-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
+
+        /* Logiciel */
+        .mockup-display { background: var(--bg-alt); }
+        .window-frame {
+            max-width: 1100px; margin: 0 auto; background: white; border-radius: 20px;
+            padding: 10px; box-shadow: 0 40px 100px rgba(0,0,0,0.08); border: 1px solid var(--border);
+        }
+        .window-frame img { width: 100%; border-radius: 12px; display: block; }
+
+        /* Confiance */
+        .trust-banner { display: flex; align-items: center; gap: 80px; }
+        .trust-content { flex: 1; }
+        .trust-image { flex: 1; position: relative; }
+        .trust-image img { width: 100%; border-radius: 40px; }
+        .stat-badge {
+            position: absolute; bottom: -20px; left: -20px; background: var(--accent);
+            color: white; padding: 25px 40px; border-radius: 25px; font-weight: 700;
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+        }
+
+        /* ==========================================================================
+           6. NOUVELLE SECTION ACCÈS (DOUCE)
+           ========================================================================== */
+        .access-section {
+            background: #ffffff;
+            text-align: center;
+        }
+        .access-card {
+            max-width: 800px; margin: 0 auto; padding: 80px;
+            border-radius: 50px; background: var(--bg-alt);
+            border: 1px dashed var(--primary);
+        }
+        .access-card i { font-size: 3rem; color: var(--primary); margin-bottom: 30px; }
+
+        /* FAQ */
+        .faq-container { max-width: 850px; margin: 0 auto; }
+        .faq-item { margin-bottom: 15px; border-radius: 20px; background: var(--bg-alt); transition: 0.3s; }
+        .faq-question {
+            width: 100%; padding: 30px; border: none; background: none;
+            display: flex; justify-content: space-between; align-items: center;
+            cursor: pointer; font-family: 'Quicksand'; font-size: 1.1rem; font-weight: 700; text-align: left;
+        }
+        .faq-answer { max-height: 0; padding: 0 30px; color: var(--text-mid); overflow: hidden; transition: 0.4s ease-out; opacity: 0; }
+        .faq-item.active { background: white; box-shadow: 0 15px 40px rgba(0,0,0,0.05); border: 1px solid var(--border); }
+        .faq-item.active .faq-answer { max-height: 200px; padding-bottom: 30px; opacity: 1; }
+
+        footer { padding: 80px 10%; background: #fafbfc; color: var(--text-dark); text-align: center; border-top: 1px solid var(--border); }
+
+        .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); display: none; align-items: center; justify-content: center; z-index: 100000; }
+        .modal-inner { background: white; padding: 60px; border-radius: 40px; max-width: 500px; width: 90%; text-align: center; }
+
+        @media (max-width: 1000px) { .features-grid, .trust-banner { grid-template-columns: 1fr; flex-direction: column; } .nav-links { display: none; } }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <a href="#" class="logo"><i class="fas fa-shield-halved"></i> SCOLAR<span>MANAGER</span></a>
+        <ul class="nav-links">
+            <li><a href="#features">Fonctionnalités</a></li>
+            <li><a href="#logiciel">Logiciel</a></li>
+            <li><a href="#confiance">Confiance</a></li>
+            <li><a href="#acces">Accès</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <button class="btn btn-p" onclick="openModal()" style="padding: 10px 25px; font-size: 0.85rem;">Connexion</button>
+    </nav>
+
+    <header class="hero">
+        <div data-aos="fade-up">
+            <span style="color:var(--primary); font-weight:700; letter-spacing:5px; font-size: 0.8rem;">SCOLAR MANAGER</span>
+            <h1>L'administration <br> simplifiée.</h1>
+            <p>Le logiciel de référence pour l'administration scolaire. Génération de documents, archivage humain sécurisé et support 24/7.</p>
+            <div style="display: flex; gap: 20px; justify-content: center;">
+                <a href="#acces" class="btn btn-p">Obtenir mes accès</a>
+                <a href="#logiciel" class="btn" style="border: 1px solid var(--border); background: white;">Interface</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="features">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <span>Services</span>
+                <h2>Une gestion intelligente.</h2>
+            </div>
+            <div class="features-grid">
+                <div class="f-card" data-aos="fade-up">
+                    <i class="fas fa-file-contract f-icon"></i>
+                    <h3>Documents Pro</h3>
+                    <p>Contrats, sanctions et attestations générés en PDF haute définition instantanément.</p>
+                </div>
+                <div class="f-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-vault f-icon"></i>
+                    <h3>Archivage Privé</h3>
+                    <p>Vos données ne sont pas perdues dans le cloud. Notre équipe les sécurise manuellement.</p>
+                </div>
+                <div class="f-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-bolt f-icon"></i>
+                    <h3>Rapidité Webhook</h3>
+                    <p>Transmission instantanée des données vers nos serveurs sécurisés dès la création.</p>
+                </div>
+                <div class="f-card" data-aos="fade-up">
+                    <i class="fas fa-headset f-icon"></i>
+                    <h3>Support 24/7</h3>
+                    <p>Une question ? Un document perdu ? Notre équipe Discord répond en quelques minutes.</p>
+                </div>
+                <div class="f-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-fingerprint f-icon"></i>
+                    <h3>Accès Exclusif</h3>
+                    <p>Uniquement accessible via clé membre pour garantir l'intégrité de l'établissement.</p>
+                </div>
+                <div class="f-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-leaf f-icon"></i>
+                    <h3>Gratuité Totale</h3>
+                    <p>Aucun frais caché. Un service dédié au bon fonctionnement du Scolar Manager.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="logiciel" class="mockup-display">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <span>Aperçu</span>
+                <h2>Votre nouveau tableau de bord.</h2>
+            </div>
+            <div class="window-frame" data-aos="zoom-in">
+                <div style="display:flex; gap:8px; margin-bottom:12px; padding-left:10px;">
+                    <div style="width:10px; height:10px; border-radius:50%; background:#ff5f57;"></div>
+                    <div style="width:10px; height:10px; border-radius:50%; background:#febc2e;"></div>
+                    <div style="width:10px; height:10px; border-radius:50%; background:#28c840;"></div>
+                </div>
+                <img src="https://media.discordapp.net/attachments/1325123295737155635/1226955073172082738/preview_logiciel.png" alt="ScolarManager Interface">
+            </div>
+        </div>
+    </section>
+
+    <section id="confiance">
+        <div class="container trust-banner">
+            <div class="trust-image" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1000" alt="Work">
+                <div class="stat-badge">+5 Administrateurs</div>
+            </div>
+            <div class="trust-content" data-aos="fade-left">
+                <span>Équipe Humaine</span>
+                <h2>L'archivage avec une conscience.</h2>
+                <p style="margin: 25px 0; color: var(--text-mid);">
+                    Derrière ScolarManager, il n'y a pas que des lignes de code. Il y a une équipe de 5 membres de confiance qui veillent sur vos documents. Chaque fichier généré nous est transmis pour être archivé dans un environnement privé et sécurisé.
+                </p>
+                <ul style="list-style: none; display: grid; gap: 15px;">
+                    <li><i class="fas fa-check" style="color:var(--accent);"></i> Traçabilité totale des documents</li>
+                    <li><i class="fas fa-check" style="color:var(--accent);"></i> Récupération gratuite via Discord</li>
+                    <li><i class="fas fa-check" style="color:var(--accent);"></i> Confidentialité ScolarManager garantie</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="acces" class="access-section">
+        <div class="container">
+            <div class="access-card" data-aos="fade-up">
+                <i class="fab fa-discord"></i>
+                <h2>Accès Communautaire</h2>
+                <p style="margin: 20px 0 40px; color: var(--text-mid);">ScolarManager est un outil. L'accès est gratuit mais nécessite une validation par nos administrateurs sur Discord.</p>
+                <a href="https://discord.gg/sve8HYnEKv" target="_blank" class="btn btn-p">Rejoindre le Discord pour obtenir une clé</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="container">
+            <div class="section-title">
+                <span>Aide</span>
+                <h2>FAQ</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item" data-aos="fade-up">
+                    <button class="faq-question">Qui a accès à mes documents ? <i class="fas fa-plus"></i></button>
+                    <div class="faq-answer">Seulement vous et les 5 administrateurs de la Team Scolar pour l'archivage de secours.</div>
+                </div>
+                <div class="faq-item" data-aos="fade-up">
+                    <button class="faq-question">Comment récupérer un fichier supprimé ? <i class="fas fa-plus"></i></button>
+                    <div class="faq-answer">Contactez-nous sur Discord avec votre nom d'utilisateur, nous vous renverrons l'archive en quelques minutes.</div>
+                </div>
+                <div class="faq-item" data-aos="fade-up">
+                    <button class="faq-question">Le logiciel peut-il tomber en panne ? <i class="fas fa-plus"></i></button>
+                    <div class="faq-answer">Nos serveurs ont un taux de disponibilité de 99.9%. En cas de maintenance, l'équipe prévient sur Discord.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h3 style="margin-bottom:15px;">ScolarManager Pro</h3>
+        <p style="opacity:0.6; font-size:0.85rem;">Une solution exclusive pour le Campus Rosa Parks.</p>
+        <div style="margin:30px 0; display:flex; justify-content:center; gap:20px;">
+            <a href="https://discord.gg/sve8HYnEKv" target="_blank" style="color:var(--text-dark); font-size: 1.5rem;"><i class="fab fa-discord"></i></a>
+        </div>
+        <p style="font-size:0.75rem; opacity:0.5;">&copy; 2026 ScolarManager. Tous droits réservés.</p>
+    </footer>
+
+    <div class="modal" id="modal">
+        <div class="modal-inner">
+            <i class="fas fa-lock-open" style="font-size:3rem; color:var(--primary); margin-bottom:25px;"></i>
+            <h3>Connexion Sécurisée</h3>
+            <p style="margin: 20px 0 35px; color: var(--text-mid);">Veuillez entrer votre clé d'accès fournie par la Team Scolar sur Discord.</p>
+            <button class="btn btn-p" style="width: 100%; justify-content:center;" onclick="closeModal()">Fermer</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        window.onscroll = () => {
+            const nav = document.getElementById('navbar');
+            if(window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        };
+
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.onclick = () => {
+                const item = btn.parentElement;
+                item.classList.toggle('active');
+                const icon = btn.querySelector('i');
+                icon.classList.toggle('fa-plus');
+                icon.classList.toggle('fa-minus');
+            };
+        });
+
+        function openModal() { document.getElementById('modal').style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+        function closeModal() { document.getElementById('modal').style.display = 'none'; document.body.style.overflow = 'auto'; }
+    </script>
+</body>
+</html>
