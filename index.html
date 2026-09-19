@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campus Rosa Parks</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚌</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Barre d'édition (mode admin) -->
+  <div id="admin-bar">
+    <div><strong>Mode édition</strong> — modifiez le site, les changements sont visibles par tout le monde en direct</div>
+    <div class="admin-bar-actions">
+      <span id="save-status"></span>
+      <button id="btn-logout" type="button">Se déconnecter</button>
+    </div>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <a href="#accueil" class="brand">
+        <svg class="brand-mark" viewBox="0 0 48 48" fill="none">
+          <rect x="4" y="10" width="40" height="22" rx="7" fill="#D9A441"/>
+          <rect x="4" y="10" width="40" height="22" rx="7" stroke="#17233C" stroke-width="2"/>
+          <rect x="9" y="15" width="8" height="7" rx="1.5" fill="#17233C"/>
+          <rect x="20" y="15" width="8" height="7" rx="1.5" fill="#17233C"/>
+          <rect x="31" y="15" width="6" height="7" rx="1.5" fill="#17233C"/>
+          <circle cx="13" cy="35" r="4.5" fill="#17233C"/>
+          <circle cx="35" cy="35" r="4.5" fill="#17233C"/>
+          <path class="route-path" d="M2 42 H46" stroke="#B23A2E" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-text">
+          <span class="school">Campus Rosa Parks</span>
+          <span class="place">Établissement scolaire</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" data-locked="true">
+        <a href="#accueil" data-page="accueil">Accueil</a>
+        <a href="#apropos" data-page="apropos">Qui sommes-nous</a>
+        <a href="#filieres" data-page="filieres">Nos filières</a>
+        <a href="#rejoindre" data-page="rejoindre">Nous rejoindre</a>
+        <a href="#services" data-page="services">Nos services</a>
+        <span class="nav-lock" title="Le menu principal est fixe : aucune rubrique ne peut être ajoutée ici, même en mode édition.">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+          menu fixe
+        </span>
+      </nav>
+
+      <div class="header-actions">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <button class="btn btn-ghost btn-sm" id="btn-login" type="button">Connexion</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===================== ACCUEIL ===================== -->
+    <section id="page-accueil" class="page active">
+
+      <div class="hero">
+        <div class="container">
+          <div>
+            <div class="hero-kicker">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 15 9l7 1-5 5 1.5 7L12 18l-6.5 4L7 15l-5-5 7-1z"/></svg>
+              Établissement public — hommage à Rosa Parks
+            </div>
+            <h1 class="hero-title">
+              <span class="line"><span>Un campus qui</span></span>
+              <span class="line"><span>fait avancer chacun.</span></span>
+            </h1>
+            <p class="hero-sub" data-editable="hero_sub">Le Campus Rosa Parks forme, accompagne et rassemble ses élèves autour de filières exigeantes et d'une vie de campus engagée. Ici, chaque parcours compte.</p>
+            <div class="hero-cta">
+              <a href="#filieres" class="btn btn-gold">Découvrir nos filières</a>
+              <a href="#rejoindre" class="btn btn-ghost">Voir les offres à pourvoir</a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat"><b data-editable="stat1">1 200+</b><span>élèves accueillis</span></div>
+              <div class="stat"><b data-editable="stat2">6</b><span>filières proposées</span></div>
+              <div class="stat"><b data-editable="stat3">120</b><span>personnels engagés</span></div>
+            </div>
+          </div>
+          <div class="hero-figure">
+            <svg viewBox="0 0 320 320" fill="none">
+              <circle cx="160" cy="160" r="150" stroke="#D9A441" stroke-width="1.5" stroke-dasharray="3 7"/>
+              <circle cx="160" cy="160" r="112" fill="#1E2C4A"/>
+              <path d="M60 200 Q160 120 260 200" stroke="#D9A441" stroke-width="3" fill="none" stroke-linecap="round" class="route-path"/>
+              <circle cx="160" cy="150" r="46" fill="#D9A441"/>
+              <rect x="120" y="196" width="80" height="56" rx="16" fill="#F5EFE1"/>
+              <circle cx="140" cy="252" r="9" fill="#17233C"/>
+              <circle cx="180" cy="252" r="9" fill="#17233C"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <section class="block">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow-rule"></div>
+              <h2>Trois raisons de nous rejoindre</h2>
+            </div>
+          </div>
+          <div class="grid grid-3">
+            <div class="card">
+              <svg class="card-icon" viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="26" rx="4" fill="#17233C"/><path d="M14 22h20M14 28h14" stroke="#D9A441" stroke-width="2.5" stroke-linecap="round"/></svg>
+              <h3 data-editable="home_card1_title">Filières exigeantes</h3>
+              <p data-editable="home_card1_text">Des parcours généraux, technologiques et professionnels pensés pour ouvrir toutes les portes après le campus.</p>
+            </div>
+            <div class="card">
+              <svg class="card-icon" viewBox="0 0 48 48" fill="none"><circle cx="16" cy="18" r="7" fill="#B23A2E"/><circle cx="32" cy="18" r="7" fill="#D9A441"/><path d="M6 40c0-8 6-13 10-13s10 5 10 13M22 40c0-8 6-13 10-13s10 5 10 13" stroke="#17233C" stroke-width="2.5" fill="none"/></svg>
+              <h3 data-editable="home_card2_title">Une communauté vivante</h3>
+              <p data-editable="home_card2_text">Élèves, professeurs et personnels avancent ensemble, dans le respect et l'entraide qui font l'identité du campus.</p>
+            </div>
+            <div class="card">
+              <svg class="card-icon" viewBox="0 0 48 48" fill="none"><rect x="8" y="16" width="32" height="20" rx="3" fill="#D9A441"/><path d="M8 20l16 10 16-10" stroke="#17233C" stroke-width="2.5" fill="none"/></svg>
+              <h3 data-editable="home_card3_title">Des services au quotidien</h3>
+              <p data-editable="home_card3_text">Cantine, vie scolaire, plateformes numériques : tout ce qu'il faut pour simplifier la vie sur le campus.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block">
+        <div class="container">
+          <div class="cta-band">
+            <div>
+              <h3 data-editable="cta_title">Une place vous attend au Campus Rosa Parks.</h3>
+              <p data-editable="cta_text">Consultez nos offres ou découvrez la filière qui vous correspond.</p>
+            </div>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <a href="#rejoindre" class="btn btn-gold">Nous rejoindre</a>
+              <a href="#apropos" class="btn btn-ghost">Qui sommes-nous</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ===================== QUI SOMMES-NOUS ===================== -->
+    <section id="page-apropos" class="page">
+      <section class="block" style="padding-top:60px;">
+        <div class="container">
+          <div class="eyebrow-rule"></div>
+          <h2 style="font-size:clamp(2rem,4vw,2.9rem); max-width:16ch;" data-editable="about_title">L'héritage d'un nom, l'ambition d'un campus.</h2>
+          <p style="margin-top:20px; font-size:1.05rem;" data-editable="about_text">Le Campus Rosa Parks porte le nom d'une femme qui, par un acte de courage tranquille, a fait bouger les lignes. Nous nous en inspirons chaque jour : donner à chaque élève la place et les moyens d'avancer, quels que soient son parcours et ses ambitions.</p>
+
+          <div class="values-row">
+            <div class="value-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <h4 data-editable="value1_title">Exigence</h4>
+              <p data-editable="value1_text">Un accompagnement scolaire rigoureux, pour chaque filière.</p>
+            </div>
+            <div class="value-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-8-4.7-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.3-8 11-8 11Z"/></svg>
+              <h4 data-editable="value2_title">Bienveillance</h4>
+              <p data-editable="value2_text">Une équipe attentive au bien-être de chaque élève.</p>
+            </div>
+            <div class="value-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v12H8l-4 4V4Z"/></svg>
+              <h4 data-editable="value3_title">Dialogue</h4>
+              <p data-editable="value3_text">Une communauté où la parole de chacun a du poids.</p>
+            </div>
+            <div class="value-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 11 18-8-8 18-2-8-8-2Z"/></svg>
+              <h4 data-editable="value4_title">Ambition</h4>
+              <p data-editable="value4_text">Préparer chaque élève à choisir la suite de son parcours.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block">
+        <div class="container">
+          <div class="split">
+            <div>
+              <div class="eyebrow-rule"></div>
+              <h2 style="font-size:2.1rem;" data-editable="history_title">Notre campus en quelques repères</h2>
+              <p style="margin-top:16px;" data-editable="history_text">Un établissement à taille humaine, organisé pour que chaque élève trouve sa place, de l'accueil à la sortie du campus.</p>
+            </div>
+            <div class="timeline">
+              <div class="t-item"><b data-editable="tl1_title">Un accueil pour chacun</b><p data-editable="tl1_text">Vie scolaire, infirmerie et cantine accompagnent le quotidien des élèves.</p></div>
+              <div class="t-item"><b data-editable="tl2_title">Des équipes disponibles</b><p data-editable="tl2_text">Professeurs et personnels sont présents à chaque étape du parcours.</p></div>
+              <div class="t-item"><b data-editable="tl3_title">Une ouverture sur l'avenir</b><p data-editable="tl3_text">Orientation, stages et partenariats préparent l'après-campus.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ===================== NOS FILIÈRES ===================== -->
+    <section id="page-filieres" class="page">
+      <section class="block" style="padding-top:60px;">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow-rule"></div>
+              <h2 data-editable="filieres_title">Nos filières</h2>
+              <p data-editable="filieres_text">Un parcours pour chaque projet, du général au professionnel.</p>
+            </div>
+          </div>
+          <div class="grid grid-3" id="filieres-grid"></div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ===================== NOUS REJOINDRE ===================== -->
+    <section id="page-rejoindre" class="page">
+      <section class="block" style="padding-top:60px;">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow-rule"></div>
+              <h2 data-editable="jobs_title">Nous rejoindre</h2>
+              <p data-editable="jobs_text">Les postes actuellement à pourvoir sur le campus.</p>
+            </div>
+            <button class="btn btn-brick admin-only" id="btn-add-job" type="button" style="display:none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+              Ajouter un poste
+            </button>
+          </div>
+          <div class="jobs-list" id="jobs-list"></div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ===================== NOS SERVICES ===================== -->
+    <section id="page-services" class="page">
+      <section class="block" style="padding-top:60px;">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow-rule"></div>
+              <h2 data-editable="services_title">Nos services</h2>
+              <p data-editable="services_text">Les plateformes et services numériques du campus, accessibles en un lien.</p>
+            </div>
+          </div>
+          <div class="grid grid-3" id="services-grid"></div>
+        </div>
+      </section>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <span class="brand-text"><span class="school">Campus Rosa Parks</span></span>
+          <p style="margin-top:14px; max-width:38ch; color:rgba(245,239,225,0.6);" data-editable="footer_text">Un établissement qui prépare chaque élève à avancer, en s'inspirant du courage tranquille de Rosa Parks.</p>
+        </div>
+        <div>
+          <h5>Navigation</h5>
+          <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#apropos">Qui sommes-nous</a></li>
+            <li><a href="#filieres">Nos filières</a></li>
+            <li><a href="#rejoindre">Nous rejoindre</a></li>
+            <li><a href="#services">Nos services</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Contact</h5>
+          <ul>
+            <li data-editable="contact_address">Campus Rosa Parks</li>
+            <li data-editable="contact_email">contact@campus-rosaparks.fr</li>
+            <li data-editable="contact_phone">01 23 45 67 89</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Campus Rosa Parks</span>
+        <span>Site conçu pour la communauté du campus</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== MODALE DE CONNEXION ===================== -->
+  <div class="modal" id="login-modal">
+    <div class="modal-box">
+      <button class="modal-close" data-close-modal><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <h3>Espace administration</h3>
+      <p class="modal-sub">Réservé aux personnes habilitées à modifier le site.</p>
+      <form id="login-form">
+        <div class="field">
+          <label for="login-email">Adresse e-mail</label>
+          <input type="email" id="login-email" autocomplete="username" required>
+        </div>
+        <div class="field">
+          <label for="login-password">Mot de passe</label>
+          <input type="password" id="login-password" autocomplete="current-password" required>
+        </div>
+        <div class="modal-error" id="login-error"></div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline-ink" data-close-modal>Annuler</button>
+          <button type="submit" class="btn btn-brick" id="login-submit">Se connecter</button>
+        </div>
+      </form>
+      <div class="security-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+        <span>La connexion passe par Firebase Authentication : le mot de passe n'est jamais écrit dans le code du site et n'apparaît donc pas dans l'inspecteur du navigateur — il est vérifié côté serveur.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== MODALE GÉNÉRIQUE (filière / poste / service) ===================== -->
+  <div class="modal" id="item-modal">
+    <div class="modal-box">
+      <button class="modal-close" data-close-modal><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <h3 id="item-modal-title">Ajouter</h3>
+      <p class="modal-sub" id="item-modal-sub"></p>
+      <form id="item-form">
+        <div id="item-form-fields"></div>
+        <div class="modal-error" id="item-form-error"></div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline-ink" data-close-modal>Annuler</button>
+          <button type="submit" class="btn btn-brick" id="item-form-submit">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================== MODALE DE SUPPRESSION ===================== -->
+  <div class="modal" id="confirm-modal">
+    <div class="modal-box" style="max-width:380px;">
+      <h3>Confirmer la suppression</h3>
+      <p class="modal-sub" id="confirm-text">Cette action est visible par tout le monde immédiatement.</p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-outline-ink" data-close-modal>Annuler</button>
+        <button type="button" class="btn btn-brick" id="confirm-delete-btn">Supprimer</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg><span id="toast-text">Enregistré</span></div>
+
+  <!-- Firebase (compat, servi depuis jsdelivr — npm) -->
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.13.2/firebase-app-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.13.2/firebase-auth-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@10.13.2/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
