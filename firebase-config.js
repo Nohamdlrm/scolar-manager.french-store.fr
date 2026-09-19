@@ -28,12 +28,12 @@
    ========================================================================= */
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCr5Y2vEQe2dRG-scoIb-UI4psKtbPGRo8",
-  authDomain: "campus-rosa-parks-1890a.firebaseapp.com",
-  projectId: "campus-rosa-parks-1890a",
-  storageBucket: "campus-rosa-parks-1890a.firebasestorage.app",
-  messagingSenderId: "601758761286",
-  appId: "1:601758761286:web:0236d5aaf9ddd4d5ca2547"
+  apiKey: "REMPLACE_MOI",
+  authDomain: "REMPLACE_MOI.firebaseapp.com",
+  projectId: "REMPLACE_MOI",
+  storageBucket: "REMPLACE_MOI.appspot.com",
+  messagingSenderId: "REMPLACE_MOI",
+  appId: "REMPLACE_MOI"
 };
 
 firebase.initializeApp(firebaseConfig);
